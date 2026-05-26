@@ -1,0 +1,123 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-aqi-good: var(--aqi-good);
+  --color-aqi-moderate: var(--aqi-moderate);
+  --color-aqi-sensitive: var(--aqi-sensitive);
+  --color-aqi-unhealthy: var(--aqi-unhealthy);
+  --color-aqi-very-unhealthy: var(--aqi-very-unhealthy);
+  --color-aqi-hazardous: var(--aqi-hazardous);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Ocean Deep palette */
+  --background: oklch(0.18 0.04 240);
+  --foreground: oklch(0.96 0.01 220);
+  --surface: oklch(0.22 0.045 240);
+  --surface-2: oklch(0.26 0.05 235);
+
+  --card: oklch(0.22 0.045 240);
+  --card-foreground: oklch(0.96 0.01 220);
+  --popover: oklch(0.22 0.045 240);
+  --popover-foreground: oklch(0.96 0.01 220);
+
+  --primary: oklch(0.72 0.12 195);          /* teal #5cbdb9 */
+  --primary-foreground: oklch(0.16 0.04 240);
+  --secondary: oklch(0.55 0.10 215);        /* mid blue #2d8a9e */
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.28 0.04 235);
+  --muted-foreground: oklch(0.72 0.03 220);
+  --accent: oklch(0.72 0.12 195);
+  --accent-foreground: oklch(0.16 0.04 240);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.32 0.04 235 / 60%);
+  --input: oklch(0.30 0.04 235);
+  --ring: oklch(0.72 0.12 195);
+
+  /* AQI scale */
+  --aqi-good: oklch(0.78 0.16 145);
+  --aqi-moderate: oklch(0.85 0.15 95);
+  --aqi-sensitive: oklch(0.75 0.17 55);
+  --aqi-unhealthy: oklch(0.65 0.22 25);
+  --aqi-very-unhealthy: oklch(0.50 0.20 320);
+  --aqi-hazardous: oklch(0.38 0.16 15);
+
+  --chart-1: oklch(0.72 0.12 195);
+  --chart-2: oklch(0.78 0.16 145);
+  --chart-3: oklch(0.85 0.15 95);
+  --chart-4: oklch(0.65 0.22 25);
+  --chart-5: oklch(0.55 0.10 215);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, oklch(0.32 0.04 235 / 30%) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.32 0.04 235 / 30%) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-radial-glow {
+    background: radial-gradient(ellipse at top, oklch(0.30 0.10 200 / 60%), transparent 70%);
+  }
+}
